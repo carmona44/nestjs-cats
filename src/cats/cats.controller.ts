@@ -10,7 +10,7 @@ export class CatsController {
 
     @Post()
     async create(@Body() createCatDto: CreateCatDto) {
-        return this.catsService.create(createCatDto);
+        return await this.catsService.create(createCatDto);
     }
 
     @Get()

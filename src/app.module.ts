@@ -5,7 +5,14 @@ import { CatsModule } from './cats/cats.module';
 import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
-  imports: [CatsModule, MongooseModule.forRoot('mongodb://localhost/cats')],
+  imports: [
+    CatsModule, 
+    MongooseModule.forRoot('mongodb://localhost/cats', { 
+      useNewUrlParser: true, 
+      useUnifiedTopology: true, 
+      useFindAndModify: false 
+    })
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
